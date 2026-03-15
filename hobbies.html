@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hobbies | Alhan Ali</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">ALHAN.ALI</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-controls">
+          <button class="nav-btn" id="mode-btn" title="Toggle dark/light mode">🌙</button>
+          <button class="nav-btn" id="font-btn" title="Toggle font size">A+</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="reveal">
+      <span class="section-tag">// hobbies.exe</span>
+      <h2 class="section-title">What I Do For Fun</h2>
+      <p class="hobbies-intro">Beyond school and projects, this is what actually fills my time.</p>
+    </div>
+
+    <div class="hobbies-grid">
+      <div class="hobby-card reveal" style="--hobby-color:#06b6d4;">
+        <span class="hobby-emoji">💻</span>
+        <h3>Coding Projects</h3>
+        <p>I build stuff for the fun of it. Games, tools, random experiments. If I get an idea at midnight I'll probably be up building it. Most of the projects on this site started exactly like that.</p>
+        <div class="hobby-detail">Currently building: ChatApp + Drawing App</div>
+      </div>
+      <div class="hobby-card reveal delay-1" style="--hobby-color:#f472b6;">
+        <span class="hobby-emoji">🏓</span>
+        <h3>Table Tennis</h3>
+        <p>Fast, technical, and weirdly addictive. Great for sharpening reflexes. I play casually but get pretty into it when someone challenges me.</p>
+        <div class="hobby-detail">Favourite move: the topspin loop 🏓</div>
+      </div>
+      <div class="hobby-card reveal delay-2" style="--hobby-color:#a78bfa;">
+        <span class="hobby-emoji">🖨️</span>
+        <h3>3D Printing & Modeling</h3>
+        <p>I design stuff in CAD and print it. There's something genuinely satisfying about watching a digital model turn into a real object you can hold. The printer is pretty much always running.</p>
+        <div class="hobby-detail">Software: Fusion 360 · Bambu Studio</div>
+      </div>
+      <div class="hobby-card reveal" style="--hobby-color:#fbbf24;">
+        <span class="hobby-emoji">📦</span>
+        <h3>Cardboard Engineering</h3>
+        <p>Cardboard is way more capable than people give it credit for. I've built a crane that lifts 30kg, a working vending machine, and life-size figures, all from cardboard.</p>
+        <div class="hobby-detail">Record: 30kg lifting crane 🏗️</div>
+      </div>
+      <div class="hobby-card reveal delay-1" style="--hobby-color:#f97316;">
+        <span class="hobby-emoji">🤝</span>
+        <h3>Volunteering & Tutoring</h3>
+        <p>I genuinely like giving back. Whether it's leading volunteers, tutoring younger students in Math and English, or running audio at events, showing up for others is something I care about.</p>
+        <div class="hobby-detail">Volunteer of the Month recipient 🏅</div>
+      </div>
+      <div class="hobby-card reveal delay-2" style="--hobby-color:#06b6d4;">
+        <span class="hobby-emoji">✈️</span>
+        <h3>Exploring New Places</h3>
+        <p>I've been to Singapore, Kuala Lumpur, Toronto, Edmonton, and Calgary. Every city has its own vibe. Travelling changes how you see things in a way that's hard to explain until you've done it.</p>
+        <div class="hobby-detail">Cities visited: 6+ across 3 countries 🌍</div>
+      </div>
+      <div class="hobby-card reveal" style="--hobby-color:#34d399;">
+        <span class="hobby-emoji">🏏</span>
+        <h3>Cricket</h3>
+        <p>Big fan of the sport. Follow it closely and play casually with friends. Taught me a lot about patience, focus, and teamwork.</p>
+        <div class="hobby-detail">Pakistan fan 🇵🇰</div>
+      </div>
+      <div class="hobby-card reveal delay-1" style="--hobby-color:#94a3b8;">
+        <span class="hobby-emoji">📖</span>
+        <h3>Research & Writing</h3>
+        <p>I actually enjoy going deep on a topic and writing about it properly. Published an article on microbial activity and glacier melt. Took real research and I'm proud of how it turned out.</p>
+        <div class="hobby-detail">Published on Medium · Science writing</div>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="section-tag">// random.facts</span>
+        <h2 class="section-title">Random Facts About Me</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+        <div class="fun-fact reveal"><span class="fun-fact-icon">🌙</span><span class="fun-fact-text">I do my best work <strong>after midnight</strong>. My brain just works differently then.</span></div>
+        <div class="fun-fact reveal delay-1"><span class="fun-fact-icon">🎮</span><span class="fun-fact-text">There's a <strong>hidden Easter egg</strong> on this site. The Konami code will find it.</span></div>
+        <div class="fun-fact reveal delay-2"><span class="fun-fact-icon">🍕</span><span class="fun-fact-text">I could eat <strong>pizza</strong> every day and never get tired of it.</span></div>
+        <div class="fun-fact reveal delay-3"><span class="fun-fact-icon">🔢</span><span class="fun-fact-text">I do math problems for fun sometimes. Yes, <strong>actually for fun</strong>.</span></div>
+        <div class="fun-fact reveal"><span class="fun-fact-icon">📱</span><span class="fun-fact-text">I mentally <strong>redesign apps</strong> whenever I find their UI frustrating.</span></div>
+        <div class="fun-fact reveal delay-1"><span class="fun-fact-icon">🧱</span><span class="fun-fact-text">I have <strong>way too many Lego sets</strong> and I'm not getting rid of any of them.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Alhan Ali &nbsp;·&nbsp; &copy; 2026</p>
+  </footer>
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+  <div class="konami-hint">↑↑↓↓←→←→BA</div>
+  <script src="script.js"></script>
+</body>
+</html>

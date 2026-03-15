@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alhan Ali | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">ALHAN.ALI</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-controls">
+          <button class="nav-btn" id="mode-btn" title="Toggle dark/light mode">🌙</button>
+          <button class="nav-btn" id="font-btn" title="Toggle font size">A+</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1 class="hero-name">
+      <span class="name-line1">ALHAN</span>
+      <span class="name-line2">ALI</span>
+    </h1>
+    <div class="hero-roles">
+      <span class="role-chip c">💻 Web Developer</span>
+      <span class="role-chip p">📦 Cardboard Engineer</span>
+      <span class="role-chip g">🖨️ 3D Designer</span>
+      <span class="role-chip y">🏏 Cricket Fan</span>
+      <span class="role-chip v">🤝 Volunteer Lead</span>
+    </div>
+    <p class="hero-desc">
+      Hey! I'm Alhan, a Grade 11 student from Karachi, Pakistan now living in Toronto.
+      I build things with code, cardboard, and whatever else I can get my hands on.
+      Welcome to my corner of the internet. 👋
+    </p>
+    <div class="hero-ctas">
+      <a href="projects.html" class="btn-primary"><span>See My Work →</span></a>
+      <a href="contact.html" class="btn-outline">Let's Talk</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      scroll to explore
+    </div>
+  </div>
+
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="10" data-suffix="+">0</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-item reveal delay-1">
+        <div class="stat-num" data-target="5">0</div>
+        <div class="stat-label">Carleton Courses</div>
+      </div>
+      <div class="stat-item reveal delay-2">
+        <div class="stat-num" data-target="6" data-suffix="+">0</div>
+        <div class="stat-label">Achievements</div>
+      </div>
+      <div class="stat-item reveal delay-3">
+        <div class="stat-num" data-target="350" data-suffix="+">0</div>
+        <div class="stat-label">Hours Volunteering</div>
+      </div>
+      <div class="stat-item reveal delay-4">
+        <div class="stat-num" data-target="500" data-suffix="+">0</div>
+        <div class="stat-label">Hours Coding</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="reveal">
+      <span class="section-tag">// about_me.txt</span>
+      <h2 class="section-title">Who Am I?</h2>
+      <p class="section-sub">A curious builder who likes making things that actually work.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Hey! I'm <strong>Alhan Ali</strong>, going into <strong>Grade 11</strong>. I genuinely love learning, especially <strong>Systems Design & Technology</strong> and <strong>Math</strong>. To me they're not just school subjects, they're how I think about the world.</p>
+        <p>I grew up in <strong>Karachi, Pakistan</strong> before moving to Toronto. I've also visited Singapore, Kuala Lumpur, Edmonton, and Calgary along the way. Every place left an impression.</p>
+        <p>Outside school I'm usually building something. Could be a web app, a cardboard thing, or whatever 3D model I decided I needed that week. I also tutor younger students and help lead volunteers, which I genuinely enjoy.</p>
+        <p>This site is part portfolio, part playground. Scroll around, try stuff, have fun.</p>
+      </div>
+      <div class="about-fun reveal delay-2">
+        <div class="fun-fact"><span class="fun-fact-icon">🌍</span><span class="fun-fact-text">Born in <strong>Karachi, Pakistan</strong>, now in Toronto</span></div>
+        <div class="fun-fact"><span class="fun-fact-icon">✈️</span><span class="fun-fact-text">Visited <strong>6 cities</strong> across 3 countries</span></div>
+        <div class="fun-fact"><span class="fun-fact-icon">🏏</span><span class="fun-fact-text">Big <strong>cricket fan</strong>. Pakistan all the way</span></div>
+        <div class="fun-fact"><span class="fun-fact-icon">💡</span><span class="fun-fact-text">Favourite subjects: <strong>Math & Systems Design</strong></span></div>
+        <div class="fun-fact"><span class="fun-fact-icon">⏰</span><span class="fun-fact-text">Best coding hours: <strong>late at night</strong> 🌙</span></div>
+        <div class="fun-fact"><span class="fun-fact-icon">🎮</span><span class="fun-fact-text">Try the <strong>Konami code</strong> somewhere on this site</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="skills-section">
+    <div class="skills-inner">
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="section-tag">// tech_stack.json</span>
+        <h2 class="section-title">What I Work With</h2>
+        <p class="section-sub">Tools and tech I actually use.</p>
+      </div>
+      <div class="skills-grid" style="grid-template-columns:repeat(4,1fr);gap:20px;">
+        <div class="skill-card reveal" style="--skill-color:#007396;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">Java</div>
+        </div>
+        <div class="skill-card reveal delay-1" style="--skill-color:#3776ab;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">Python</div>
+        </div>
+        <div class="skill-card reveal delay-2" style="--skill-color:#e34f26;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">HTML5</div>
+        </div>
+        <div class="skill-card reveal delay-3" style="--skill-color:#1572b6;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">CSS3</div>
+        </div>
+        <div class="skill-card reveal delay-1" style="--skill-color:#34d399;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">3D Modeling</div>
+        </div>
+        <div class="skill-card reveal delay-2" style="--skill-color:#a78bfa;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">UI Design</div>
+        </div>
+        <div class="skill-card reveal delay-3" style="--skill-color:#f472b6;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;filter:invert(1);" />
+          <div class="skill-name">GitHub</div>
+        </div>
+        <div class="skill-card reveal delay-4" style="--skill-color:#fbbf24;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="width:3.5rem;height:3.5rem;display:block;margin:0 auto 14px;" />
+          <div class="skill-name">VS Code</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="reveal" style="margin-bottom:48px;">
+      <span class="section-tag">// status.live</span>
+      <h2 class="section-title">Right Now</h2>
+      <p class="section-sub">What's going on in my life at the moment.</p>
+    </div>
+    <div class="currently-grid">
+      <div class="currently-card reveal" style="--card-color:var(--cyan);"><span class="currently-icon">📚</span><div class="currently-label">Currently Studying</div><div class="currently-value">Grade 11 Prep</div><div class="currently-sub">Systems Design · Math · English</div></div>
+      <div class="currently-card reveal delay-1" style="--card-color:var(--pink);"><span class="currently-icon">💻</span><div class="currently-label">Currently Building</div><div class="currently-value">ChatApp + DrawingApp</div><div class="currently-sub">Two ongoing web projects</div></div>
+      <div class="currently-card reveal delay-2" style="--card-color:var(--green);"><span class="currently-icon">🤝</span><div class="currently-label">Currently Doing</div><div class="currently-value">Volunteering</div><div class="currently-sub">Junior Volunteer Lead</div></div>
+      <div class="currently-card reveal delay-3" style="--card-color:var(--yellow);"><span class="currently-icon">🎯</span><div class="currently-label">Currently Learning</div><div class="currently-value">Advanced JavaScript</div><div class="currently-sub">Deepening my coding skills</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Alhan Ali &nbsp;·&nbsp; &copy; 2025</p>
+  </footer>
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+  <div class="konami-hint">↑↑↓↓←→←→BA</div>
+  <script src="script.js"></script>
+</body>
+</html>

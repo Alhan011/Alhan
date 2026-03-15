@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience | Alhan Ali</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">ALHAN.ALI</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-controls">
+          <button class="nav-btn" id="mode-btn" title="Toggle dark/light mode">🌙</button>
+          <button class="nav-btn" id="font-btn" title="Toggle font size">A+</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="reveal">
+      <span class="section-tag">// experience.log</span>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-sub">Roles I've taken on, things I've done, stuff I've learned.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;">
+      <div>
+        <h3 style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:32px;">Roles & Activities</h3>
+        <div class="timeline">
+          <div class="timeline-item reveal" style="--item-color:var(--cyan);">
+            <span class="timeline-emoji">🎯</span>
+            <div class="timeline-title">Junior Volunteer Lead (JVL)</div>
+            <p class="timeline-desc">I led a group of junior volunteers, coordinating tasks, sorting out issues when they came up, and making sure things actually ran smoothly. Taught me a lot about communication and responsibility.</p>
+            <span class="timeline-tag">Leadership</span>
+          </div>
+          <div class="timeline-item reveal delay-1" style="--item-color:var(--purple);">
+            <span class="timeline-emoji">📐</span>
+            <div class="timeline-title">Math & English Tutor</div>
+            <p class="timeline-desc">Tutored younger students in Math and English. Honestly one of my favourite things. When something finally clicks for someone you're teaching, that feeling is hard to beat.</p>
+            <span class="timeline-tag">Teaching</span>
+          </div>
+          <div class="timeline-item reveal delay-2" style="--item-color:var(--green);">
+            <span class="timeline-emoji">🏕️</span>
+            <div class="timeline-title">Camp Al-Ummah Participant</div>
+            <p class="timeline-desc">An intensive leadership and identity program. Got pushed out of my comfort zone a lot. Came back with a clearer sense of who I am and what I actually care about.</p>
+            <span class="timeline-tag">Personal Development</span>
+          </div>
+          <div class="timeline-item reveal delay-3" style="--item-color:var(--pink);">
+            <span class="timeline-emoji">🎙️</span>
+            <div class="timeline-title">PA Team Member</div>
+            <p class="timeline-desc">Ran the audio setup for live events. Mic checks, levels, the whole thing. When it goes wrong in front of a crowd, you fix it fast. No second takes.</p>
+            <span class="timeline-tag">Technical</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:32px;">Skills I've Built</h3>
+        <div class="skill-bars reveal">
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">HTML & CSS</span><span class="skill-bar-pct">90%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">JavaScript</span><span class="skill-bar-pct">75%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">3D Printing / CAD</span><span class="skill-bar-pct">80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">Problem Solving</span><span class="skill-bar-pct">88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">Leadership</span><span class="skill-bar-pct">78%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-bar-item">
+            <div class="skill-bar-header"><span class="skill-bar-name">Teaching / Tutoring</span><span class="skill-bar-pct">85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+
+        <div style="margin-top:48px;">
+          <h3 style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:24px;">Things I've Picked Up</h3>
+          <div style="display:grid;gap:12px;">
+            <div class="fun-fact reveal"><span class="fun-fact-icon">🔑</span><span class="fun-fact-text">Leadership is about <strong>earning trust</strong>, not just being in charge</span></div>
+            <div class="fun-fact reveal delay-1"><span class="fun-fact-icon">📖</span><span class="fun-fact-text">You don't really understand something until you can <strong>teach it to someone else</strong></span></div>
+            <div class="fun-fact reveal delay-2"><span class="fun-fact-icon">🎙️</span><span class="fun-fact-text">In live events, <strong>preparation beats everything</strong>. There's no undo button</span></div>
+            <div class="fun-fact reveal delay-3"><span class="fun-fact-icon">🏕️</span><span class="fun-fact-text">The best growth happens <strong>when you're uncomfortable</strong></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Alhan Ali &nbsp;·&nbsp; &copy; 2026</p>
+  </footer>
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+  <div class="konami-hint">↑↑↓↓←→←→BA</div>
+  <script src="script.js"></script>
+</body>
+</html>

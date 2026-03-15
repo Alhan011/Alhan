@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certifications | Alhan Ali</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">ALHAN.ALI</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-controls">
+          <button class="nav-btn" id="mode-btn" title="Toggle dark/light mode">🌙</button>
+          <button class="nav-btn" id="font-btn" title="Toggle font size">A+</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="reveal">
+      <span class="section-tag">// certifications.verified</span>
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-sub">Training programs and certificates I've completed along the way.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-bottom:80px;">
+      <div class="achievement-card reveal" style="--card-glow:rgba(6,182,212,0.1);">
+        <span class="achievement-icon">🚑</span>
+        <div class="achievement-title">First Aid & CPR</div>
+        <p class="achievement-desc">Certified in First Aid and CPR. Knowing how to respond in an emergency is one of those things everyone should have and I made sure I got it done.</p>
+        <span class="achievement-year">Health & Safety</span>
+      </div>
+      <div class="achievement-card reveal delay-1" style="--card-glow:rgba(251,191,36,0.1);">
+        <span class="achievement-icon">🤝</span>
+        <div class="achievement-title">Customer Service Training</div>
+        <p class="achievement-desc">Completed formal customer service training. Dealing with people well is a skill and it transfers to pretty much everything you do.</p>
+        <span class="achievement-year">Professional</span>
+      </div>
+      <div class="achievement-card reveal delay-2" style="--card-glow:rgba(167,139,250,0.1);">
+        <span class="achievement-icon">🎯</span>
+        <div class="achievement-title">Leadership Training</div>
+        <p class="achievement-desc">Formal leadership training covering communication, decision-making, and managing teams. Goes hand in hand with the real experience I've picked up volunteering.</p>
+        <span class="achievement-year">Leadership</span>
+      </div>
+      <div class="achievement-card reveal" style="--card-glow:rgba(52,211,153,0.1);">
+        <span class="achievement-icon">💼</span>
+        <div class="achievement-title">Business Etiquette Training</div>
+        <p class="achievement-desc">Trained in professional business etiquette. How to carry yourself, communicate clearly, and present in a way that makes a good impression.</p>
+        <span class="achievement-year">Professional</span>
+      </div>
+      <div class="achievement-card reveal delay-1" style="--card-glow:rgba(244,114,182,0.1);">
+        <span class="achievement-icon">📁</span>
+        <div class="achievement-title">Portfolio Development Certificate</div>
+        <p class="achievement-desc">Completed a portfolio development program. Learned how to document, present, and communicate your work in a way that actually lands with people.</p>
+        <span class="achievement-year">Development</span>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="section-tag">// why_it_matters</span>
+        <h2 class="section-title">Why I Do These</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+        <div class="fun-fact reveal"><span class="fun-fact-icon">📋</span><span class="fun-fact-text">Certifications show you're <strong>serious about the skill</strong>, not just claiming it</span></div>
+        <div class="fun-fact reveal delay-1"><span class="fun-fact-icon">🧠</span><span class="fun-fact-text">Every training teaches you <strong>something you wouldn't have learned on your own</strong></span></div>
+        <div class="fun-fact reveal delay-2"><span class="fun-fact-icon">🚀</span><span class="fun-fact-text">Building a broad skillset early means <strong>more doors open later</strong></span></div>
+        <div class="fun-fact reveal delay-3"><span class="fun-fact-icon">🤝</span><span class="fun-fact-text">Professional skills like etiquette and service <strong>matter more than people think</strong></span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Alhan Ali &nbsp;·&nbsp; &copy; 2026</p>
+  </footer>
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+  <div class="konami-hint">↑↑↓↓←→←→BA</div>
+  <script src="script.js"></script>
+</body>
+</html>
