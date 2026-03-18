@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Alhan Ali</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── flowDraw Featured Card ── */
+    .featured-project {
+      position: relative;
+      margin: 0 0 64px 0;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #0a0a0f;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease;
+    }
+    .featured-project:hover {
+      transform: translateY(-6px) scale(1.005);
+      box-shadow: 0 32px 80px rgba(99,202,255,0.18), 0 0 0 1px rgba(99,202,255,0.25);
+    }
+
+    .featured-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 30%, rgba(6,182,212,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 80% 70%, rgba(168,85,247,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 50% 10%, rgba(251,191,36,0.10) 0%, transparent 50%),
+        #0a0a0f;
+      animation: meshShift 8s ease-in-out infinite alternate;
+    }
+    @keyframes meshShift {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(25deg) brightness(1.08); }
+    }
+
+    .featured-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .featured-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 32px;
+      padding: 52px 56px 48px;
+    }
+
+    .featured-left { display: flex; flex-direction: column; gap: 16px; }
+
+    .featured-top-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .featured-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #06b6d4, #a855f7);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(6,182,212,0.4);
+    }
+
+    .featured-badge-new {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(251,191,36,0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,0.3);
+    }
+
+    .featured-tag {
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: rgba(99,202,255,0.6);
+      letter-spacing: 0.05em;
+    }
+
+    .featured-title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      background: linear-gradient(130deg, #ffffff 30%, #a5f3fc 65%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 0;
+    }
+
+    .featured-desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .featured-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .featured-stack-tag {
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65);
+    }
+
+    .featured-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .featured-emoji-wrap {
+      font-size: 5rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 32px rgba(6,182,212,0.5));
+      animation: floatEmoji 4s ease-in-out infinite;
+    }
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50%       { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #06b6d4, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      box-shadow: 0 8px 32px rgba(6,182,212,0.3);
+      white-space: nowrap;
+    }
+    .featured-cta:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+      box-shadow: 0 12px 40px rgba(6,182,212,0.45);
+    }
+
+    .featured-corner {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      opacity: 0.4;
+    }
+    .featured-corner.tl { top: 20px; left: 20px; border-top: 2px solid #06b6d4; border-left: 2px solid #06b6d4; border-radius: 4px 0 0 0; }
+    .featured-corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid #a855f7; border-right: 2px solid #a855f7; border-radius: 0 0 4px 0; }
+
+    @media (max-width: 720px) {
+      .featured-content {
+        grid-template-columns: 1fr;
+        padding: 36px 28px 32px;
+        gap: 24px;
+      }
+      .featured-right {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .featured-emoji-wrap { font-size: 3.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">ALHAN.ALI</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-controls">
+          <button class="nav-btn" id="mode-btn" title="Toggle dark/light mode">🌙</button>
+          <button class="nav-btn" id="font-btn" title="Toggle font size">A+</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="reveal">
+      <span class="section-tag">// projects.dir</span>
+      <h2 class="section-title">Things I've Built</h2>
+      <p class="projects-hero-text">Code, cardboard, and everything in between. Click any card to open the project.</p>
+    </div>
+
+    <!-- ══ FEATURED: flowDraw ══ -->
+    <div class="featured-project reveal" onclick="window.open('https://alhan011.github.io/flowDraw/','_blank')">
+      <div class="featured-bg"></div>
+      <div class="featured-corner tl"></div>
+      <div class="featured-corner br"></div>
+
+      <div class="featured-content">
+        <div class="featured-left">
+          <div class="featured-top-row">
+            <span class="featured-badge">⭐ Featured Project</span>
+            <span class="featured-badge-new">✦ Latest</span>
+            <span class="featured-tag">// computer-vision · gesture · canvas</span>
+          </div>
+          <h3 class="featured-title">flowDraw</h3>
+          <p class="featured-desc">
+            Draw in the air using only your hand. No mouse, no touchscreen — just your index finger and a webcam.
+            Built with real-time hand tracking via MediaPipe, flowDraw maps your fingertip position to a live canvas
+            so you can sketch, doodle, and create without ever touching a device. One of the most technically ambitious
+            things I've built.
+          </p>
+          <div class="featured-stack">
+            <span class="featured-stack-tag">JavaScript</span>
+            <span class="featured-stack-tag">MediaPipe</span>
+            <span class="featured-stack-tag">Canvas API</span>
+            <span class="featured-stack-tag">Computer Vision</span>
+            <span class="featured-stack-tag">HTML</span>
+            <span class="featured-stack-tag">CSS</span>
+          </div>
+        </div>
+
+        <div class="featured-right">
+          <div class="featured-emoji-wrap">✋🎨</div>
+          <a class="featured-cta" href="https://alhan011.github.io/flowDraw/" target="_blank" onclick="event.stopPropagation()">
+            Try It Live ↗
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- ══ END FEATURED ══ -->
+
+    <div class="projects-grid">
+      <div class="project-card reveal" style="--card-accent:linear-gradient(90deg,#f7df1e,#fb923c);" onclick="window.open('https://alhan011.github.io/Connect4/','_blank')">
+        <div class="project-header"><span class="project-emoji">🔴</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// game</span>
+        <h3>Connect4 Game</h3>
+        <p>Classic Connect4 where the chips actually fall with gravity. Works on mobile too, which took some extra work to get right.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-1" style="--card-accent:linear-gradient(90deg,#f472b6,#a78bfa);" onclick="window.open('https://alhan011.github.io/Alarm-Clock/','_blank')">
+        <div class="project-header"><span class="project-emoji">⏰</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// utility</span>
+        <h3>Puzzle Alarm Clock</h3>
+        <p>An alarm that won't shut off until you solve a puzzle. Built it because I kept hitting snooze. Works better than expected.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-2" style="--card-accent:linear-gradient(90deg,#06b6d4,#22d3ee);" onclick="window.open('https://alhan011.github.io/Debate-Polls/','_blank')">
+        <div class="project-header"><span class="project-emoji">🗳️</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// social</span>
+        <h3>Debate Poll</h3>
+        <p>Vote on debated questions and see what everyone else thinks. Some of the results are genuinely surprising.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal" style="--card-accent:linear-gradient(90deg,#34d399,#06b6d4);" onclick="window.open('https://alhan011.github.io/WouldURather/','_blank')">
+        <div class="project-header"><span class="project-emoji">🤔</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// social</span>
+        <h3>Would You Rather</h3>
+        <p>The classic game but with live vote percentages. You'll pick what seems obvious then find out 70% of people disagreed.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-1" style="--card-accent:linear-gradient(90deg,#fbbf24,#f97316);" onclick="window.open('https://alhan011.github.io/NinjagoFanSite/','_blank')">
+        <div class="project-header"><span class="project-emoji">🥷</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// fansite</span>
+        <h3>Ninjago Fan Website</h3>
+        <p>A fan site for LEGO Ninjago with character info and episode details. One of my earlier projects, still pretty solid.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-2" style="--card-accent:linear-gradient(90deg,#a78bfa,#f472b6);" onclick="window.open('https://alhan011.github.io/TicTacToe/','_blank')">
+        <div class="project-header"><span class="project-emoji">❌</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// game</span>
+        <h3>TicTacToe</h3>
+        <p>Two-player TicTacToe with clean win detection and a simple UI. Sometimes the best projects are the straightforward ones.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal" style="--card-accent:linear-gradient(90deg,#f97316,#ef4444);" onclick="window.open('https://alhan011.github.io/StreetBrawler/')">
+        <div class="project-header"><span class="project-emoji">🥊</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// game</span>
+        <h3>Street Brawler</h3>
+        <p>A stripped-down fighting game. Play against the CPU or with a friend locally. More fun than it looks on paper.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">Canvas</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-1" style="--card-accent:linear-gradient(90deg,#34d399,#06b6d4);" onclick="window.open('https://alhan011.github.io/House-Affordability/')">
+        <div class="project-header"><span class="project-emoji">🏠</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// tool</span>
+        <h3>House Affordability Calculator</h3>
+        <p>Put in your income and expenses, find out if you can afford a house. Spoiler: probably not in Toronto.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-2" style="--card-accent:linear-gradient(90deg,#06b6d4,#a78bfa);" onclick="window.open('https://alhan011.github.io/ChatApp/','_blank')">
+        <div class="project-header"><span class="project-emoji">💬</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// app — WIP 🚧</span>
+        <h3>ChatApp</h3>
+        <p>A real chat app with login, account creation, and messaging. Still in progress but the core stuff works.</p>
+        <div class="project-stack"><span class="stack-tag">HTML</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal" style="--card-accent:linear-gradient(90deg,#f472b6,#fbbf24);" onclick="window.open('https://alhan011.github.io/DrawingApp/','_blank')">
+        <div class="project-header"><span class="project-emoji">🎨</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// app — WIP 🚧</span>
+        <h3>Drawing App</h3>
+        <p>Canvas drawing with colour selection and brush sizes. Save feature still in progress but it's fun to use already.</p>
+        <div class="project-stack"><span class="stack-tag">HTML Canvas</span><span class="stack-tag">CSS</span><span class="stack-tag">JavaScript</span></div>
+      </div>
+      <div class="project-card reveal delay-1" style="--card-accent:linear-gradient(90deg,#94a3b8,#06b6d4);" onclick="window.open('https://medium.com/@alhan.anisali/how-microbes-speed-up-glacier-melting-f7efef5e8eae','_blank')">
+        <div class="project-header"><span class="project-emoji">🧬</span><span class="project-arrow">↗</span></div>
+        <span class="project-tag">// research</span>
+        <h3>Research Article</h3>
+        <p>I wrote and published an article on how microbes speed up glacier melting. Proper research, proper sources, genuinely interesting topic.</p>
+        <div class="project-stack"><span class="stack-tag">Research</span><span class="stack-tag">Writing</span><span class="stack-tag">Science</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom:48px;">
+      <span class="section-tag">// physical.builds</span>
+      <h2 class="section-title">Physical Projects</h2>
+      <p class="projects-hero-text">Not everything lives on a screen. Here's what I've built with my hands.</p>
+    </div>
+
+    <div class="builds-grid">
+      <div class="build-card reveal">
+        <div class="build-media"><img src="airmag.jpg" alt="Nike Air Mag Replica" /><img src="airmag1.jpg" alt="Nike Air Mag Closeup" /></div>
+        <div class="build-info"><span class="build-badge">Cardboard · Replica</span><h3>Nike Air Mag Replicas</h3><p>Handcrafted cardboard replicas of the Nike Air Mags from Back to the Future II. Every curve cut and folded by hand. These took a while.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><img src="crane.jpg" alt="Cardboard crane" /></div>
+        <div class="build-info"><span class="build-badge">Engineering · 30kg Capacity</span><h3>Cardboard Crane</h3><p>A cardboard crane that lifts up to 30kg. People don't believe it until they see it. Built for a challenge and it delivered.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><img src="legoman.jpg" alt="Cardboard Lego Man" /></div>
+        <div class="build-info"><span class="build-badge">Cardboard · Life-Size</span><h3>Life-Size Lego Figure</h3><p>A life-sized Lego minifigure made from cardboard with accurate proportions. It's taller than you'd expect.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><img src="mousetrapcar.jpg" alt="Mousetrap car" /></div>
+        <div class="build-info"><span class="build-badge">Physics · Mechanical</span><h3>Mousetrap-Powered Car</h3><p>A car powered entirely by a mousetrap spring. Goes surprisingly far for something that small.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><img src="hand1.jpg" alt="Lego Headphone Stand" /><img src="hand2.jpg" alt="Lego Headphone Stand side" /></div>
+        <div class="build-info"><span class="build-badge">Lego · Functional</span><h3>Lego Headphone Stand</h3><p>A Lego hand built to hold headphones on a desk. Looks good, actually works.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><img src="head1.jpg" alt="Lego Pencil Holder" /><img src="head2.jpg" alt="Lego Pencil Holder side" /></div>
+        <div class="build-info"><span class="build-badge">Lego · Desk Accessory</span><h3>Lego Pencil Holder</h3><p>A Lego head turned pencil holder. Why have a boring cup when you can have this on your desk?</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media"><video controls poster="vendingmachine.jpg"><source src="vendingmachine.mp4" type="video/mp4" /></video></div>
+        <div class="build-info"><span class="build-badge">Cardboard · Working Mechanism</span><h3>Cardboard Vending Machine</h3><p>A fully working cardboard vending machine with an internal dispensing mechanism. Watch the video, it actually works.</p></div>
+      </div>
+      <div class="build-card reveal">
+        <div class="build-media" style="justify-content:center;align-items:center;min-height:160px;font-size:4rem;">🖨️</div>
+        <div class="build-info"><span class="build-badge">3D Printing · Various</span><h3>+ Many More 3D Prints</h3><p>Loads of custom 3D-printed objects, from functional parts to random things I just wanted to exist. If I can model it, I can print it.</p></div>
+      </div>
+    </div>
+
+    <div class="yt-banner reveal">
+      <div><div class="yt-title">🎥 Watch Me Build on YouTube</div><div class="yt-sub">Build vlogs and tutorials on my channel @coolbildzlego</div></div>
+      <a href="https://youtube.com/@coolbildzlego?si=nlpMddqiRzD0PUyI" target="_blank" class="yt-btn">▶ Visit Channel</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Alhan Ali &nbsp;·&nbsp; &copy; 2026</p>
+  </footer>
+  <button class="back-to-top" id="back-to-top" title="Back to top">↑</button>
+  <div class="konami-hint">↑↑↓↓←→←→BA</div>
+  <script src="script.js"></script>
+</body>
+</html>
