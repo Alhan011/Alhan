@@ -6,10 +6,22 @@
   <title>Projects | Alhan Ali</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── flowDraw Featured Card ── */
+    /* ── Featured Cards Wrapper ── */
+    .featured-projects-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 0 0 64px 0;
+    }
+    @media (max-width: 960px) {
+      .featured-projects-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Featured Card Base ── */
     .featured-project {
       position: relative;
-      margin: 0 0 64px 0;
       border-radius: 24px;
       overflow: hidden;
       cursor: pointer;
@@ -19,10 +31,13 @@
     }
     .featured-project:hover {
       transform: translateY(-6px) scale(1.005);
-      box-shadow: 0 32px 80px rgba(99,202,255,0.18), 0 0 0 1px rgba(99,202,255,0.25);
     }
 
-    .featured-bg {
+    /* ── flowDraw background ── */
+    .featured-project.flowdraw:hover {
+      box-shadow: 0 32px 80px rgba(99,202,255,0.18), 0 0 0 1px rgba(99,202,255,0.25);
+    }
+    .featured-project.flowdraw .featured-bg {
       position: absolute;
       inset: 0;
       background:
@@ -37,6 +52,26 @@
       100% { filter: hue-rotate(25deg) brightness(1.08); }
     }
 
+    /* ── RETINA background ── */
+    .featured-project.retina:hover {
+      box-shadow: 0 32px 80px rgba(239,68,68,0.18), 0 0 0 1px rgba(239,68,68,0.25);
+    }
+    .featured-project.retina .featured-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(239,68,68,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 75% 70%, rgba(251,146,60,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 50% 5%, rgba(250,204,21,0.10) 0%, transparent 50%),
+        #0a0a0f;
+      animation: meshShiftRed 8s ease-in-out infinite alternate;
+    }
+    @keyframes meshShiftRed {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(-20deg) brightness(1.08); }
+    }
+
+    /* ── Shared noise overlay ── */
     .featured-bg::after {
       content: '';
       position: absolute;
@@ -49,19 +84,18 @@
     .featured-content {
       position: relative;
       z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 32px;
-      padding: 52px 56px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 44px 44px 40px;
+      height: 100%;
+      box-sizing: border-box;
     }
-
-    .featured-left { display: flex; flex-direction: column; gap: 16px; }
 
     .featured-top-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -75,9 +109,15 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #06b6d4, #a855f7);
       color: #fff;
       box-shadow: 0 0 20px rgba(6,182,212,0.4);
+    }
+    .featured-project.flowdraw .featured-badge {
+      background: linear-gradient(90deg, #06b6d4, #a855f7);
+    }
+    .featured-project.retina .featured-badge {
+      background: linear-gradient(90deg, #ef4444, #f97316);
+      box-shadow: 0 0 20px rgba(239,68,68,0.4);
     }
 
     .featured-badge-new {
@@ -97,36 +137,41 @@
 
     .featured-tag {
       font-family: monospace;
-      font-size: 0.78rem;
-      color: rgba(99,202,255,0.6);
+      font-size: 0.75rem;
       letter-spacing: 0.05em;
     }
+    .featured-project.flowdraw .featured-tag { color: rgba(99,202,255,0.6); }
+    .featured-project.retina .featured-tag  { color: rgba(255,160,100,0.6); }
 
     .featured-title {
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.05;
-      background: linear-gradient(130deg, #ffffff 30%, #a5f3fc 65%, #c084fc 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin: 0;
     }
+    .featured-project.flowdraw .featured-title {
+      background: linear-gradient(130deg, #ffffff 30%, #a5f3fc 65%, #c084fc 100%);
+    }
+    .featured-project.retina .featured-title {
+      background: linear-gradient(130deg, #ffffff 30%, #fca5a5 65%, #fb923c 100%);
+    }
 
     .featured-desc {
-      font-size: 1.05rem;
+      font-size: 0.97rem;
       color: rgba(255,255,255,0.62);
       line-height: 1.65;
-      max-width: 520px;
       margin: 0;
+      flex: 1;
     }
 
     .featured-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 4px;
     }
 
     .featured-stack-tag {
@@ -141,71 +186,77 @@
       color: rgba(255,255,255,0.65);
     }
 
-    .featured-right {
+    .featured-footer {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 20px;
-      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
     }
 
     .featured-emoji-wrap {
-      font-size: 5rem;
+      font-size: 3.2rem;
       line-height: 1;
-      filter: drop-shadow(0 0 32px rgba(6,182,212,0.5));
+    }
+    .featured-project.flowdraw .featured-emoji-wrap {
+      filter: drop-shadow(0 0 24px rgba(6,182,212,0.5));
       animation: floatEmoji 4s ease-in-out infinite;
+    }
+    .featured-project.retina .featured-emoji-wrap {
+      filter: drop-shadow(0 0 24px rgba(239,68,68,0.5));
+      animation: floatEmoji 4.5s ease-in-out infinite;
     }
     @keyframes floatEmoji {
       0%, 100% { transform: translateY(0) rotate(-3deg); }
-      50%       { transform: translateY(-12px) rotate(3deg); }
+      50%       { transform: translateY(-10px) rotate(3deg); }
     }
 
     .featured-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 28px;
+      padding: 13px 24px;
       border-radius: 12px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      background: linear-gradient(90deg, #06b6d4, #a855f7);
       color: #fff;
       text-decoration: none;
       border: none;
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-      box-shadow: 0 8px 32px rgba(6,182,212,0.3);
       white-space: nowrap;
+    }
+    .featured-project.flowdraw .featured-cta {
+      background: linear-gradient(90deg, #06b6d4, #a855f7);
+      box-shadow: 0 8px 28px rgba(6,182,212,0.3);
+    }
+    .featured-project.retina .featured-cta {
+      background: linear-gradient(90deg, #ef4444, #f97316);
+      box-shadow: 0 8px 28px rgba(239,68,68,0.3);
     }
     .featured-cta:hover {
       transform: scale(1.05);
       filter: brightness(1.1);
-      box-shadow: 0 12px 40px rgba(6,182,212,0.45);
     }
 
     .featured-corner {
       position: absolute;
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       opacity: 0.4;
     }
-    .featured-corner.tl { top: 20px; left: 20px; border-top: 2px solid #06b6d4; border-left: 2px solid #06b6d4; border-radius: 4px 0 0 0; }
-    .featured-corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid #a855f7; border-right: 2px solid #a855f7; border-radius: 0 0 4px 0; }
+    .featured-corner.tl { top: 16px; left: 16px; border-top: 2px solid; border-left: 2px solid; border-radius: 4px 0 0 0; }
+    .featured-corner.br { bottom: 16px; right: 16px; border-bottom: 2px solid; border-right: 2px solid; border-radius: 0 0 4px 0; }
+    .featured-project.flowdraw .featured-corner.tl { border-color: #06b6d4; }
+    .featured-project.flowdraw .featured-corner.br { border-color: #a855f7; }
+    .featured-project.retina  .featured-corner.tl { border-color: #ef4444; }
+    .featured-project.retina  .featured-corner.br { border-color: #f97316; }
 
     @media (max-width: 720px) {
-      .featured-content {
-        grid-template-columns: 1fr;
-        padding: 36px 28px 32px;
-        gap: 24px;
-      }
-      .featured-right {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .featured-emoji-wrap { font-size: 3.2rem; }
+      .featured-content { padding: 32px 24px 28px; }
     }
   </style>
 </head>
@@ -240,16 +291,17 @@
       <p class="projects-hero-text">Code, cardboard, and everything in between. Click any card to open the project.</p>
     </div>
 
-    <!-- ══ FEATURED: flowDraw ══ -->
-    <div class="featured-project reveal" onclick="window.open('https://alhan011.github.io/flowDraw/','_blank')">
-      <div class="featured-bg"></div>
-      <div class="featured-corner tl"></div>
-      <div class="featured-corner br"></div>
+    <!-- ══ FEATURED PAIR ══ -->
+    <div class="featured-projects-row">
 
-      <div class="featured-content">
-        <div class="featured-left">
+      <!-- flowDraw -->
+      <div class="featured-project flowdraw reveal" onclick="window.open('https://alhan011.github.io/flowDraw/','_blank')">
+        <div class="featured-bg"></div>
+        <div class="featured-corner tl"></div>
+        <div class="featured-corner br"></div>
+        <div class="featured-content">
           <div class="featured-top-row">
-            <span class="featured-badge">⭐ Featured Project</span>
+            <span class="featured-badge">⭐ Featured</span>
             <span class="featured-badge-new">✦ Latest</span>
             <span class="featured-tag">// computer-vision · gesture · canvas</span>
           </div>
@@ -257,8 +309,7 @@
           <p class="featured-desc">
             Draw in the air using only your hand. No mouse, no touchscreen — just your index finger and a webcam.
             Built with real-time hand tracking via MediaPipe, flowDraw maps your fingertip position to a live canvas
-            so you can sketch, doodle, and create without ever touching a device. One of the most technically ambitious
-            things I've built.
+            so you can sketch, doodle, and create without ever touching a device.
           </p>
           <div class="featured-stack">
             <span class="featured-stack-tag">JavaScript</span>
@@ -268,17 +319,50 @@
             <span class="featured-stack-tag">HTML</span>
             <span class="featured-stack-tag">CSS</span>
           </div>
-        </div>
-
-        <div class="featured-right">
-          <div class="featured-emoji-wrap">✋🎨</div>
-          <a class="featured-cta" href="https://alhan011.github.io/flowDraw/" target="_blank" onclick="event.stopPropagation()">
-            Try It Live ↗
-          </a>
+          <div class="featured-footer">
+            <div class="featured-emoji-wrap">✋🎨</div>
+            <a class="featured-cta" href="https://alhan011.github.io/flowDraw/" target="_blank" onclick="event.stopPropagation()">
+              Try It Live ↗
+            </a>
+          </div>
         </div>
       </div>
+
+      <!-- RETINA -->
+      <div class="featured-project retina reveal" onclick="window.open('https://alhan011.github.io/SpaceInvader/','_blank')">
+        <div class="featured-bg"></div>
+        <div class="featured-corner tl"></div>
+        <div class="featured-corner br"></div>
+        <div class="featured-content">
+          <div class="featured-top-row">
+            <span class="featured-badge">⭐ Featured</span>
+            <span class="featured-tag">// eye-tracking · game · webgazer</span>
+          </div>
+          <h3 class="featured-title">RETINA</h3>
+          <p class="featured-desc">
+            A space shooter you aim with your eyes. No mouse, no keyboard — just where you look.
+            Uses WebGazer.js to track your gaze in real time, calibrating to your screen so your ship
+            fires wherever your eyes are pointed. Waves get harder. Don't let them through.
+          </p>
+          <div class="featured-stack">
+            <span class="featured-stack-tag">JavaScript</span>
+            <span class="featured-stack-tag">WebGazer.js</span>
+            <span class="featured-stack-tag">Eye Tracking</span>
+            <span class="featured-stack-tag">Canvas API</span>
+            <span class="featured-stack-tag">HTML</span>
+            <span class="featured-stack-tag">CSS</span>
+          </div>
+          <div class="featured-footer">
+            <div class="featured-emoji-wrap">👁️🚀</div>
+            <a class="featured-cta" href="https://alhan011.github.io/SpaceInvader/" target="_blank" onclick="event.stopPropagation()">
+              Try It Live ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <!-- ══ END FEATURED ══ -->
+    <!-- ══ END FEATURED PAIR ══ -->
 
     <div class="projects-grid">
       <div class="project-card reveal" style="--card-accent:linear-gradient(90deg,#f7df1e,#fb923c);" onclick="window.open('https://alhan011.github.io/Connect4/','_blank')">
